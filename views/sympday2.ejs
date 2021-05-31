@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symposium</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <title>Symposium</title>
+
+  <style>
+      .compatibility-message {
+      display: none;
+  }
+      @media (orientation: portrait) {
+      html, body {
+          overflow: hidden;
+          background-color: #000;
+          max-width: 100%;
+      }
+      .compatibility-message {
+          display: block ;
+          position: fixed;
+          z-index: 999999;
+          width: 100%;
+          height: 100%;
+          background: #13110e;
+          text-align: center;
+      }
+      
+  
+      .compatibility-message img {
+          max-width: 100%;
+      }
+  } */
+  body{
+    width:100%;
+}
+.back-img{
+    position:absolute;
+    top:15%;
+}
+.btn1{
+    position: relative;
+    top:40%;
+}
+.btn2{
+    position: relative;
+    bottom:-40%;
+}
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid #007acc;
+}
+
+
+
+.text{
+    padding:30px;
+}
+.text1{
+    margin:11vh 5vh 0 0 ;
+}
+@media (max-width:3840px){
+    
+    .text1{
+        margin:4vh 5vh 0 0 ;
+    }
+}
+@media (max-width:2560px){
+    .text1{
+        margin:6vh 5vh 0 0 ;
+    }
+}
+@media (max-width:1920px){
+    .text1{
+        margin:6vh 5vh 0 0;
+    }
+}
+.text1{
+    margin:9vh 5vh 0 0 ;
+}
+@media (max-width:1024px){
+    #mainsession{
+        margin-top: 14vh;
+    }
+    #breakout{
+        margin-top: 7vh;
+        margin-bottom: 5vh;
+    }
+    #breakout_2{
+        margin-top:5vh;
+    }
+    .text{
+        padding:30px 0px 30px 10px;
+    }
+    .bg1{
+        background-size:100% 29vh;
+    }
+    .bg2{
+        background-size:100% 24vh;
+    }
+    .bg3{
+        background-size:100% 19vh;
+    }
+    .text1{
+        margin:5vh 2vh 0 0;
+    }
+    .text1 img{
+        width:100%;
+        height:auto;
+    }
+}
+@media (max-width:768px){
+    #mainsession{
+        margin-top: 14vh;
+    }
+    .text{
+        padding:30px 0px 30px 10px;
+    }
+  
+    .text1{
+        margin:10vh 2vh 0 0;
+    }
+    .text1 img{
+        width:100%;
+        height:auto;
+    }
+    .btn1{
+        top:35%;
+      
+      
+    }
+    .btn2{
+        top:35%;
+       
+    }
+    .text-left{
+        font-size: 15px;
+    }
+    .bottom-text{
+        font-size: 15px;
+    }
+}
+@media (max-width:450px){
+  .btn1{
+        top:-60%;
+      margin-right: 15px;
+      
+    }
+    .btn2{
+        top:-55%;
+       
+    }
+}
+  </style>
+</head>
+<body>
+   <!----------------phone orintation-------------------->
+    <div class="compatibility-message" >
+    <img src="images/orintation.jpeg" alt="">
+  </div> 
+
+  <!----------------phone orintation-------------------->
+   <!------Top navebar------->
+   <%- include('./top_nav'); %>
+
+   <!------Top navebar------->
+   <header>
+   <a href="/lobby"> <img class="back-img" src="images/back-img.png" alt="" width="3%" style="margin-left: 10px;"> </a>
+  <a href="/lobby">  <img src="images/Header.png" class="img-fluid" style="width:100%;"> </a>
+  
+</header>
+<section style="background-image: url(images/Background.png);
+    background-position: center;
+    background-size:100%;
+    ">
+    <div class="container">
+        <div class="separator"><h1 class="text-center  p-5" style="color: #007acc;">Day 2</h1></div>
+    <div class="row">
+       
+        <div class="col-md-6" id="breakout">
+            <div style="background-image: url(images/Breakout1.png);
+                        background-position: center;
+                        background-repeat: no-repeat;background-size:100% 100% ;" class=" container bg2">
+                <div class="row">
+                    <div class="col-md-7"> 
+                        <div class="text-left text">
+                            <h6 class="text-left"><b>Breakout #1</b></h6>
+                            <h5 class="text-left">Treatment Planning & Trouble Shooting</h5>
+                            <div class="text-left" style="color: black;"><strong>(12:05 - 13:30 GMT+8)</strong></div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="text-center btn1 ">
+                            <button class=" btn btn-primary">Join sessin</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container bg3"  id="breakout_2" style="background-image: url(images/out2.png);
+                background-position: center;
+                background-repeat: no-repeat;background-size:100% 100% ;">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="text">
+                            <h6 class="text-left"><b>Breakout #2</b></h6>
+                            <h5 class="text-left">Practice Manegement</h5>
+                            <div class="text-left" style="color: black;"><strong>(12:05 - 13:30 GMT+8)</strong></div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="text-center btn2">
+                          <button class="btn btn-primary">Join sessin</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="container text-center bg1" id="mainsession" style="background-image: url(images/MainSession.png);
+          background-position: center;
+          background-repeat: no-repeat;background-size:100% ;">
+              <div class="text">
+                  <h2 class="text-center"><b>Main Session</b></h2>
+                  <h5><strong>(10:30 - 12:05 GMT+8)</strong></h5>
+                  <button class="btn btn-primary">Join sessin</button>
+              </div>
+          </div>
+      </div>
+    </div>
+    </div><br><br>
+    <h4 class="text-center bottom-text">Waiting for the session to start? Click <a href="#">here</a> to explore our exhibition hall!</h4>
+</section>
+
+   <!------bottom navebar------->
+   <%- include('./bottom_nav'); %>
+ 
+   <!------bottom navebar------->
+</body>
+</html>

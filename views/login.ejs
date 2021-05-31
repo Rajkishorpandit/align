@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!--===============================================================================================-->
+    <style></style>
+  </head>
+
+  <body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="active">LogIn</h2>
+
+        <!-- Login Form -->
+
+        <form action="/login" method="POST" class="validate-form">
+          <% logErrors.forEach(function(message) { %>
+          <div class="alert alert-danger small" style="width: 65%; margin-left: 70px; height: 10px; padding-bottom: 30px"><%= message%></div>
+          <% }) %> <% errors.forEach(function(message) { %>
+          <div class="alert alert-danger small" style="width: 75%; margin-left: 60px; height: 10px; padding-bottom: 30px" ;><%= message%></div>
+          <% }) %>
+
+          <input type="text" class="fadeIn second" name="email" placeholder="Email" required />
+          <input type="password" class="fadeIn third" name="password" placeholder="Password" required />
+
+          <input type="submit" class="fadeIn fourth" value="Log In" />
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+          <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+      var datetime
+
+      var data = new Promise(async (resolve, reject) => {
+        var today = new Date()
+        var date = today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear()
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
+
+        datetime = date + " " + time
+        resolve(datetime)
+      })
+      data
+        .then(async (datetime) => {
+          await axios.post("/lobby", { date: datetime })
+
+          console.log("datetime" + "" + datetime)
+        })
+        .catch((e) => {
+          console.log("some thing wrong")
+        })
+    </script>
+  </body>
+</html>

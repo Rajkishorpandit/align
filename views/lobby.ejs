@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby</title>
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/font_awesome.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css">
+
+    <script src="assets/js/lang.js"></script>
+
+    <style>
+      .compatibility-message {
+          display: none;
+      }
+      
+      @media (orientation: portrait) {
+          html,
+          body {
+              overflow: hidden;
+              background-color: #000;
+              max-width: 100%;
+          }
+          .compatibility-message {
+              display: block;
+              position: fixed;
+              z-index: 999999;
+              width: 100%;
+              height: 100%;
+              background: #13110e;
+              text-align: center;
+          }
+          .compatibility-message img {
+              max-width: 100%;
+          }
+      }
+      
+      @media (max-width:3840px) {
+          .video {
+              position: absolute;
+              left: 72.6%;
+              top: 24%;
+          }
+          .img {
+              width: 140px;
+              height: 140px;
+          }
+          body {
+              position: fixed;
+              overflow: hidden;
+          }
+      }
+      
+      @media (max-width:2560px) {
+          .video {
+              position: absolute;
+              left: 72.6%;
+              top: 24%;
+          }
+          .img {
+              width: 100px;
+              height: 100px;
+          }
+      }
+      
+      @media (max-width:1440px) {
+          .video {
+              position: absolute;
+              left: 72.40%;
+              top: 22.50%;
+          }
+          .img {
+              width: 55px;
+              height: 55px;
+          }
+      }
+      
+      @media (max-width:992px) {
+          .video {
+              position: absolute;
+              left: 72%;
+              top: 22%;
+          }
+          .img {
+              width: 35px;
+              height: 35px;
+          }
+      }
+      
+      @media (max-width:700px) {
+          .video {
+              position: absolute;
+              left: 72%;
+              top: 20%;
+          }
+          .img {
+              width: 32px;
+              height: 32px;
+          }
+      }
+      
+      @media (max-width:600px) {
+          .video {
+              position: absolute;
+              left: 72%;
+              top: 20%;
+          }
+          .img {
+              width: 24px;
+              height: 24px;
+          }
+      }
+      
+      @media (max-width:450px) {
+          .video {
+              position: absolute;
+              left: 72%;
+              top: 20%;
+          }
+          .img {
+              width: 20px;
+              height: 20px;
+          }
+      }
+      
+      @media (max-width:3840px) {
+          body {
+              overflow: hidden;
+          }
+      }
+      
+      @media (max-width:992px) {
+          body {
+              position: relative;
+              overflow: visible;
+          }
+      }
+      
+      .btn:hover {
+          background-color: #00ccff;
+      }
+      
+      h5 {
+          padding: 10px;
+          font-style: italic;
+          font-weight: 700;
+      }
+      
+      p {
+          font-size: 20px;
+          padding: 10px 10px 0;
+          font-weight: 600;
+      }
+      
+      .row {
+          margin: 0 20px 0;
+      }
+      
+      .border_top {
+          border-top: 2px rgb(34, 151, 197) dotted;
+      }
+      
+      .border_left {
+          border-left: 2px rgb(34, 151, 197) dotted;
+      }
+      
+      .border_right {
+          border-right: 2px rgb(34, 151, 197) dotted;
+      }
+      
+      .border_bottom {
+          border-bottom: 2px rgb(34, 151, 197) dotted;
+      }
+      
+      .text_color {
+          color: rgb(20, 159, 214);
+      }
+      
+      .btn:hover {
+          background-color: #00ccff;
+      }
+  </style>
+  
+
+
+
+</head>
+<body  >
+  <!----------------phone orintation-------------------->
+  <div class="compatibility-message" >
+    <img src="images/orintation.jpeg" alt="">
+  </div>
+
+  <!----------------phone orintation-------------------->
+  <!------Top navebar------->
+  <%- include('./top_nav'); %>
+
+  <!------Top navebar------->
+
+  <!---------------------landing-page--------------------------------->
+     <section>
+
+      <div class="landing">
+      
+        <img src="https://dpq8mnugsaz6e.cloudfront.net/images/Virtual Lobby_rendered_v8.jpg" alt="" style="width: 100%; height:100vh;">
+        <a data-toggle="modal" href="#ModalCenter"> <div class="video">
+          <img src="https://dpq8mnugsaz6e.cloudfront.net/images/icons/playbutton.png" id="play" class="img">
+      </div>
+    </a>
+       <a href="#"> <div class="hotspot helpdesk" text="Helpdesk"></div></a>
+       <a href="/symposiumhall"> <div class="hotspot exhibition" text="Symposium Hall"></div></a>
+       <a href="/exhibition"> <div class="hotspot enterence" text="Exhibition Hall"></div> </a>
+       <a data-toggle="modal" href="#myModal"> 
+         <div class="hotspot resource-center" id="Agenda" text="Agenda"></div> </a>
+    </div>
+    </section>
+  
+
+
+  <!---------------------landing-page end--------------------------------->
+   <!---------------------model_1--------------------------------------------------->
+  
+<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header text-center d-block">
+            <h3 class="modal-title d-inline-block"  style="color:#00ccff;">Lead with Clinical Excellence</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <iframe id="playerIframe2" sandbox="allow-forms allow-scripts allow-same-origin allow-popups" allow="microphone; camera; fullscreen" width="100%" style="height:435px;border:none;"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+    </div>
+    </div>
+  </div>
+</div>
+  <!---------------------model_1_end--------------------------------------------------->
+  <!------------------------- Modal_2 ---------------------------------->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header text-center d-block">
+                <h4 class="modal-title d-inline-block" style="color:#00ccff; ">Agenda</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container" style="background-color:rgb(8, 8, 39);color:white;">
+                    <h4 class="p-5">Agenda (Day 1, 20 May)</h4>
+                    <div class="background_border" style="border: rgb(34, 151, 197) dotted 1px;">
+                        <div class="row mt-5" style="background-color: rgb(33, 151, 197);color: white;">
+                            <div class="col-md-2">
+                                <h5>Time (GMT+8)</h5>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Programme</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Speaker</h5>
+                            </div>
+                        </div>
+                        <div class="row" style="background-color:white;color:rgb(33, 151, 197);">
+                            <div class="col-md-2">
+                                <p>10:00</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <p>Virtual Exhibition</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2  border_right">
+                                <p>10:30</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+                                <p class="text_color">Main Session
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Opening &amp; Welcome </p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Ms Julie Tay Dr Lionel Hui Bon Hoa</p>
+              
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>10:55</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>My Journey to Achieving Clinical Excellence</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Prof. Juan Carlos Rivero Lesmes<br>(Spain)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>11:25</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right">
+                                <p>Panel Discussion</p>
+                            </div>
+                            <div class="col-md-3 text_color">
+                                <p>Prof. Zuolin Jin<br>(China)</p>
+                                <p>Prof. Kee-Joon Lee<br>(Korea)</p>
+                                <p>Dr Chris Chang<br>(Taiwan)</p>
+                                <p>Moderated by Dr Lionel Hui Bon Hoa</p>
+              
+                            </div>
+                        </div>
+                        <div class="row" style="background-color: rgb(33, 151, 197);color: white; ">
+                            <div class="col-md-2">
+                                <h5>11:50</h5>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <h5>Break</h5>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+                        <div class="row" style="background-color:white;color:rgb(33, 151, 197);">
+                            <div class="col-md-2">
+                        
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <p>Breakout Session #1</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2  border_right">
+                                <p>12:05</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+                                <p class="text_color" style="font-size: 18px;">Treatment Planning & Troubleshooting
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Tips on Ensuring Success with Premolar Extractions and Invisalign</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Kee Hwang Poon<br>(Singapore)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>12:25</p>
+                            </div>
+                            <div class="col-md-3 text_color border_right">
+                                <p ></p>
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Achieving Good Finishing for Extraction Treatments Consistently</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Masahiro Kubota<br>(Japan)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>12:45</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Planning and Monitoring for Reducing the Additional Aligners</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Amit Sachdeva<br>(India)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>13:05</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right ">
+                                <p>Q&amp;A</p>
+                            </div>
+                            <div class="col-md-3 text_color">
+              
+                            </div>
+                        </div>
+                        <div class="row" style="background-color:white;color:rgb(33, 151, 197);">
+                            <div class="col-md-2">
+                                
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <p>Breakout Session #2</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2  border_right">
+                                <p>12:05</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+                                <p class="text_color" style="font-size: 18px;">Practice Management
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Effective Patient Consultation for Driving Conversion</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Steve Semaan<br>(Australia)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>12:25</p>
+                            </div>
+                            <div class="col-md-3 text_color border_right">
+                                <p style="font-size: 18px;"></p>
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Leverage Digital Workflow to Empower a High Performing Team</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Chih-Wei Shu<br>(China)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>12:45</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>How to Make Invisalign Treatment Fun and Efficient?</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Masahiro Yamamoto<br>(Japan)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>13:05</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right ">
+                                <p>Q&amp;A</p>
+                            </div>
+                            <div class="col-md-3 text_color">
+              
+                            </div>
+                        </div>
+                        
+                        <div class="row" style="background-color:white;color:rgb(33, 151, 197);">
+                            <div class="col-md-2">
+                                <p>13:30</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <p>Virtual Exhibition</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+                        <div class="row mb-5" style="background-color: rgb(33, 151, 197);color: white;">
+                            <div class="col-md-2">
+                                <p>14:00</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <p>END</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+              
+                    </div>
+                </div>
+                <br><br>
+                <div class="container" style="background-color:rgb(8, 8, 39);color:white;">
+                    <h4 class="p-5">Agenda (Day 2, 21 May)</h4>
+                    <div class="background_border" style="border: rgb(34, 151, 197) dotted 1px;">
+                        <div class="row mt-5" style="background-color: rgb(33, 151, 197);color: white;">
+                            <div class="col-md-2">
+                                <h5>Time (GMT+8)</h5>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Programme</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>Speaker</h5>
+                            </div>
+                        </div>
+                        <div class="row" style="background-color:white;color:rgb(33, 151, 197);">
+                            <div class="col-md-2">
+                                <p>10:00</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <p>Virtual Exhibition</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+                        <div class="row" style="background-color:white;color:rgb(33, 151, 197);">
+                            <div class="col-md-2">
+                                <p></p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <p>Breakout Sessions #1</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2  border_right">
+                                <p>10:30</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+                                <p class="text_color">Teen
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Invisalign First: Do's and Don'ts</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Ronny Lie (Hong Kong)</p>
+              
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>10:50</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Treating Mandibular Advancement with Confidence</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Ronald Sluiter<br>(New Zealand)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>11:10</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Q&A</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+              
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2  border_right">
+                                <p>11:20</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4  border_bottom border_right">
+                                <p>Achieving Excellent Clinical Outcomes in Teen Cases</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Eugene Chan<br>(Australia)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2  border_right ">
+                                <p>11:40</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Improve Treatment Efficiency for Teen Treatments</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Guang Shu<br>(China)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>12:00</p>
+                            </div>
+                            <div class="col-md-3 text_color border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right">
+                                <p>Q&A
+                            </div>
+                            <div class="col-md-3 text_color">
+              
+                            </div>
+                        </div>
+                        <div class="row" style="background-color: rgb(33, 151, 197);color: white; ">
+                            <div class="col-md-2">
+                                <h5>12:10</h5>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <h5>Break</h5>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+                        <div class="row" style="background-color:white;color:rgb(33, 151, 197);">
+                            <div class="col-md-2">
+              
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <p class=>Breakout Session #2</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>10:30</p>
+                            </div>
+                            <div class="col-md-3 border_right text_color">
+                                <p class="adultaesthetics">Adult / Aesthetics</p>
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Digital Workflow and Aesthetic Dentistry</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Angelo Lazaris<br>(Australia)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>10:50</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Pre-prosthodontic Teeth Alignment with Invisalign System</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Prof. Pravej Sericheta-<br>phongse<br>(Thailand)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>11:10</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Q&A</p>
+                            </div>
+                            <div class="col-md-3 border_bottom">
+              
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>11:20</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Efficacy in Treating Severe Deep Bite for Adults</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Tapasya Kapoor<br>(India)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>11:40</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Invisalign as<br> Pre-restorative Treatment</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Sabrina Huang<br>(Taiwan)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>12:00</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right">
+                                <p>Q&A</p>
+                            </div>
+                            <div class="col-md-3 text_color">
+              
+                            </div>
+                        </div>
+                        <div class="row" style="background-color: rgb(33, 151, 197);color: white; ">
+                            <div class="col-md-2">
+                                <h5>12:10</h5>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <h5>Break</h5>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>12:25 </p>
+                            </div>
+                            <div class="col-md-3 border_right text_color">
+                                <P>Main Session</P>
+                            </div>
+                            <div class="col-md-4 border_right border_bottom">
+                                <p>Redefining Excellence</p>
+                            </div>
+                            <div class="col-md-3 text_color border_bottom">
+                                <p>Dr Graham Gardner<br>(United States)</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 border_right">
+                                <p>12:50</p>
+                            </div>
+                            <div class="col-md-3 border_right">
+              
+                            </div>
+                            <div class="col-md-4 border_right ">
+                                <p>Treatment Plan Shoot-out</p>
+                            </div>
+                            <div class="col-md-3 text_color">
+                                <p>Prof. Wenli Lai<br>(China)
+                                    <p>Dr Sarah Lawrence<br>(Australia)
+                                        <p>Dr Warasiri Pitakanonda<br>(Thailand)</p>
+                            </div>
+                        </div>
+                        <div class="row" style="background-color:white;color:rgb(33, 151, 197);">
+                            <div class="col-md-2">
+                                <p>13:20</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <p>Closing</p>
+                            </div>
+                            <div class="col-md-3">
+              
+                            </div>
+                        </div>
+                        <div class="row mb-5" style="background-color: rgb(33, 151, 197);color: white;">
+                            <div class="col-md-12 text-center">
+                                <p>End of Day 2</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!------------------------ Modal2 end ----------------->
+
+  
+ 
+  <!------bottom navebar------->
+  <%- include('./bottom_nav'); %>
+ 
+  <!------bottom navebar------->
+
+
+
+ <!------ video stop------->
+ <!-- jQuery library -->
+ <script src="assets/libs/bootstrap/js/jquery.min.js"></script>
+
+ 
+ <!-- Popper JS -->
+ <script src="assets/libs/bootstrap/js/popper.min.js"></script>
+ <script src="assets/libs/bootstrap/fonts/font_kit.js"></script>
+     <!-- Latest compiled JavaScript -->
+     <script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+
+<!-----------customer chat support------------->
+    <script type="text/javascript">
+        (function(w, d, v3) {
+            w.chaportConfig = {
+                appId: '60a392a2cffe24321141ec88',
+		visitor : {
+      name :` ${localStorage.getItem('firstName')}_${localStorage.getItem('lastName')}_${localStorage.getItem('subscriberId')}`
+             },
+                appearance: {
+                    windowColor: '#009ace',
+                    teamName: 'Helpdesk',
+                    onlineWelcome: 'Hello, we are online!',
+                    offlineWelcome: 'We are not online.',
+                    position: ['left', 250, 200],
+                    textStatuses: true
+                },
+                launcher: {
+                    show: false
+                }
+            };
+            if (w.chaport) return;
+            v3 = w.chaport = {};
+            v3._q = [];
+            v3._l = {};
+            v3.q = function() {
+                v3._q.push(arguments)
+            };
+            v3.on = function(e, fn) {
+                if (!v3._l[e]) v3._l[e] = [];
+                v3._l[e].push(fn)
+            };
+            var s = d.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'https://app.chaport.com/javascripts/insert.js';
+            var ss = d.getElementsByTagName('script')[0];
+            ss.parentNode.insertBefore(s, ss)
+        })
+        (window, document);
+
+        $(document).ready(function() {
+            $(".helpdesk").click(function() {
+                window.chaport.on('ready', function() {
+                    window.chaport.toggle();
+                })
+            });
+        });
+    </script>
+
+ <script type="text/javascript">
+     $(document).ready(function() {
+         $("#ModalCenter").on('show.bs.modal', function() {
+             let url = 'videojs-player.html?url=https://d3n1lc1vveyc7o.cloudfront.net/aligntest/videos/lobby/day2/Align%20Symposium%20May%202021%20Opener%20V4.m3u8&type=application/x-mpegURL&poster=';
+             $('#playerIframe2').attr('src', url);
+         });
+
+         $("#ModalCenter").on('hide.bs.modal', function() {
+             $('#playerIframe2').attr('src', '');
+         });
+     });
+ </script>
+   
+    <!------ video stop------->
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+    apiKey: "AIzaSyCQHH7s1h2NHWAUd2L9EeNk7YRRGLgfd5U",
+    authDomain: "user-analytics-7f2fb.firebaseapp.com",
+    databaseURL: "https://user-analytics-7f2fb-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "user-analytics-7f2fb",
+    storageBucket: "user-analytics-7f2fb.appspot.com",
+    messagingSenderId: "264365350373",
+    appId: "1:264365350373:web:50df388263edd3284fe30c",
+    measurementId: "G-HTWLVHG2TT"
+  };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        //   firebase.database();
+        // firebase.database().ref('user').set({name:'h'})
+        // firebase.database().ref('user').on('value',snap=>{
+        //   console.log(snap.val());''
+        // })
+
+        firebase.database().ref().on('value', snap => {
+            //   do nothing
+        })
+
+        //   var a = firebase.database().ref().push().key()
+
+        //   console.log(a);
+
+        var subscriberId = localStorage.getItem('subscriberId')
+        var firstName = localStorage.getItem('firstName')
+        var lastName = localStorage.getItem('lastName')
+        var uniqueName = firstName + "_" + lastName + "_" + subscriberId 
+        var dt = new Date();
+        var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+        var today = dt.getDate() + "-" + dt.getMonth() + "-" + dt.getFullYear()
+        // console.log('jj');
+        firebase.database().ref(`${uniqueName}/${today}/lobby`).push(time)
+
+        $('#Agenda').click(function() {
+            var dt = new Date();
+            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+            firebase.database().ref(`${uniqueName}/${today}/Agenda`).push(time)
+        })
+
+        $('#play').click(function() {
+            var dt = new Date();
+            var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+            firebase.database().ref(`${uniqueName}/${today}/Clinical excellence`).push(time)
+        })
+    </script>
+
+ <!-----------customer chat support------------->
+</body>
+</html>

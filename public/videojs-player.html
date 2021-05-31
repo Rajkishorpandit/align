@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>VideoJs Player</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="assets/libs/video.js/dist/video-js.min.css" rel="stylesheet">
+    <link href="assets/libs/videojs-hls-quality-selector/dist/videojs-hls-quality-selector.css" rel="stylesheet">
+    <link href="assets/libs/videojs-http-source-selector/dist/videojs-http-source-selector.css" rel="stylesheet">
+    <link href="assets/libs/videojs-dvr/dist/videojs-dvr.css" rel="stylesheet">
+    <link href="assets/libs/videojs-themes/fantasy/index.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0px;
+        }
+        
+        .vjs-control-bar {
+            background-color: #2b333f;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="my-player" class="video-js vjs-theme-fantasy" controls preload="auto"></video>
+    <script src="assets/libs/jquery-1.12.4.min.js"></script>
+    <script src="assets/libs/video.js/dist/video.min.js"></script>
+    <script src="assets/libs/videojs-contrib-quality-levels/dist/videojs-contrib-quality-levels.min.js"></script>
+    <script src="assets/libs/videojs-http-source-selector/dist/videojs-http-source-selector.min.js"></script>
+    <script src="assets/libs/videojs-dvr/dist/videojs-dvr.min.js"></script>
+    <script src="assets/libs/videojs-event-tracking/dist/videojs-event-tracking.min.js"></script>
+    <script type="text/javascript">
+        var eventDetails;
+        var player;
+
+        $(document).ready(function() {
+            InitPlayer();
+        });
+
+        function InitPlayer() {
+            let src = GetQueryString("url");
+            let type = GetQueryString("type");
+            let poster = GetQueryString("poster");
+
+            const options = {
+                liveui: true,
+                controls: true,
+                fluid: true,
+                sources: [{
+                    src: src,
+                    type: type,
+                }, ],
+                poster: poster,
+                controlBar: {
+                    children: [
+                        "playToggle",
+                        "volumePanel",
+                        "currentTimeDisplay",
+                        "timeDivider",
+                        "durationDisplay",
+                        "progressControl",
+                        "liveDisplay",
+                        "seekToLive",
+                        "remainingTimeDisplay",
+                        //"customControlSpacer",
+                        //"playbackRateMenuButton",
+                        //"chaptersButton",
+                        //"descriptionsButton",
+                        //"subsCapsButton",
+                        //"pictureInPictureToggle",
+                        "audioTrackButton",
+                        "fullscreenToggle",
+                    ],
+                },
+            };
+
+            if (player) {
+                player.dispose();
+            }
+
+            videojs("my-player", options, function() {
+                player = this;
+
+                player.qualityLevels();
+                player.httpSourceSelector();
+                player.dvr();
+                player.eventTracking();
+
+                player.on("tracking:firstplay", (e, data) => {
+                    SaveAnalytics("EVENT_START", data);
+                });
+                player.on("tracking:pause", (e, data) => {
+                    SaveAnalytics("PAUSED", data);
+                });
+                player.on("tracking:seek", (e, data) => {
+                    SaveAnalytics("SEEK", data);
+                });
+                player.on("tracking:buffered", (e, data) => {
+                    SaveAnalytics("BUFFERED", data);
+                });
+                player.on("tracking:first-quarter", (e, data) => {
+                    SaveAnalytics("FIRST_QUARTER", data);
+                });
+                player.on("tracking:second-quarter", (e, data) => {
+                    SaveAnalytics("SECOND_QUARTER", data);
+                });
+                player.on("tracking:third-quarter", (e, data) => {
+                    SaveAnalytics("THIRD_QUARTER", data);
+                });
+                player.on("tracking:fourth-quarter", (e, data) => {
+                    SaveAnalytics("FOURTH_QUARTER", data);
+                });
+            });
+        }
+
+        function ResetPlayer(src) {
+            if (player && src) {
+                player.reset();
+                player.src(src);
+                player.load();
+                player.play();
+            }
+        }
+
+        function SaveAnalytics(action, data) {
+            window.opener.SaveAnalytics(action, data);
+        }
+
+        function GetQueryString(key) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(key);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exhibition Hall</title>
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/font_awesome.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="assets/libs/bootstrap/js/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="assets/libs/bootstrap/js/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/fonts/font_kit.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/lang.js"></script>
+
+    <style>
+      .compatibility-message {
+          display: none;
+      }
+      
+      @media (orientation: portrait) {
+          html,
+          body {
+              overflow: hidden;
+              background-color: #000;
+              max-width: 100%;
+          }
+          .compatibility-message {
+              display: block;
+              position: fixed;
+              z-index: 999999;
+              width: 100%;
+              height: 100%;
+              background: #13110e;
+              text-align: center;
+          }
+          .compatibility-message img {
+              max-width: 100%;
+          }
+      }
+      /*------------hotsport css-----------------*/
+      
+      .hotspots {
+          width: 25px;
+          height: 25px;
+          background-color: #3ab3ef;
+          border-radius: 50%;
+          position: absolute;
+          animation: wave 1s infinite;
+          cursor: pointer;
+      }
+      
+      .digital_booth {
+          left: 23.5%;
+          bottom: 28.5%;
+      }
+      
+      .partnership_booth {
+          left: 48%;
+          top: 49%;
+      }
+      
+      .innovation_booth {
+          right: 30%;
+          bottom: 29%;
+      }
+      
+      .hotspots::before {
+          content: attr(text);
+          width: max-content;
+          position: absolute;
+          background-color: #222222dd;
+          color: #fff;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 30px;
+          padding: 8px 20px;
+          font-size: 14px;
+          border-radius: 3px;
+          display: none;
+      }
+      
+      .hotspots::after {
+          content: "";
+          border-color: transparent transparent #222222dd;
+          border-width: 0 8px 6px;
+          border-style: solid;
+          position: absolute;
+          top: 24px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: none;
+      }
+      
+      .hotspots:hover::before,
+      .hotspots:hover::after {
+          display: block;
+      }
+      
+      @media (max-width: 768px) {
+          .hotspots {
+              width: 13px;
+              height: 13px;
+          }
+          .digital_booth {
+              bottom: 30%;
+          }
+          .innovation_booth {
+              top: 67%;
+          }
+          .partnership_booth {
+              bottom: 32%;
+          }
+      }
+      
+      @media only screen and (min-width: 1280px) {
+          .hotspots {
+              width: 25px;
+              height: 25px;
+          }
+          .innovation_booth {
+              top: 68%;
+          }
+      }
+      
+      @media (max-width:450px) {
+          .digital_booth {
+              bottom: 32%;
+          }
+          .innovation_booth {
+              top: 64%;
+          }
+          .partnership_booth {
+              top: 45%;
+          }
+      }
+      /*------------hotsport css-----------------*/
+      
+      @media (max-width:3840px) {
+          body {
+              overflow: hidden;
+          }
+      }
+      
+      @media (max-width:992px) {
+          body {
+              position: relative;
+              overflow: visible;
+          }
+      }
+      
+      .back {
+          max-width: 40px;
+          top: 14%;
+          left: 5%;
+          position: absolute;
+          cursor: pointer;
+      }
+  </style>
+  </head>
+  <body>
+    <!----------------phone orintation-------------------->
+    <div class="compatibility-message">
+      <img src="https://dpq8mnugsaz6e.cloudfront.net/images/orintation.jpeg" alt="" />
+    </div>
+
+    <!----------------phone orintation-------------------->
+    <!------Top navebar------->
+    <%- include('./top_nav'); %>
+
+    <!------Top navebar------->
+
+    <!---------------------landing-page--------------------------------->
+    <section>
+      <div class="landing">
+     
+        <img src="https://dpq8mnugsaz6e.cloudfront.net/images/Align Virtual Booth_Overall Booths_v5a.png" alt="" style="width: 100%;height:100vh;" />
+ <a href="/lobby">  <img class="back" src="https://dpq8mnugsaz6e.cloudfront.net/images/backbtn1.png" alt="" ></a>
+        <a href="/DigitalExperienceBooth"> <div class="hotspots digital_booth" text="Align Digital Experience"></div> </a>
+        <a href="/InnovationBooth"> <div class="hotspots innovation_booth" text=" Innovation Technology"></div> </a>
+        <a href=" /PracticePartnershipBooth"><div class="hotspots partnership_booth" text=" Partnership Partnership"></div> </a>
+      </div>
+    </section>
+
+    <!---------------------landing-page end--------------------------------->
+
+    <!------bottom navebar------->
+    <%- include('./bottom_nav'); %>
+
+    <!------bottom navebar------->
+
+
+
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+     <!-- TODO: Add SDKs for Firebase products that you want to use
+              https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+ 
+ 
+     <script>
+         // Your web app's Firebase configuration
+         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+         var firebaseConfig = {
+     apiKey: "AIzaSyCQHH7s1h2NHWAUd2L9EeNk7YRRGLgfd5U",
+     authDomain: "user-analytics-7f2fb.firebaseapp.com",
+     databaseURL: "https://user-analytics-7f2fb-default-rtdb.asia-southeast1.firebasedatabase.app",
+     projectId: "user-analytics-7f2fb",
+     storageBucket: "user-analytics-7f2fb.appspot.com",
+     messagingSenderId: "264365350373",
+     appId: "1:264365350373:web:50df388263edd3284fe30c",
+     measurementId: "G-HTWLVHG2TT"
+   };
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+         firebase.analytics();
+ 
+ 
+         firebase.database().ref().on('value', snap => {
+             //   do nothing
+         })
+ 
+ 
+ 
+         var subscriberId = localStorage.getItem('subscriberId')
+         var firstName = localStorage.getItem('firstName')
+         var lastName = localStorage.getItem('lastName')
+         var uniqueName = firstName + "_" + lastName + "_" + subscriberId
+         var dt = new Date();
+         var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+         var today = dt.getDate() + "-" + dt.getMonth() + "-" + dt.getFullYear()
+         firebase.database().ref(`${uniqueName}/${today}/Exhibition-Hall/time`).push(time)
+     </script>
+  </body>
+</html>

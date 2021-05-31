@@ -1,0 +1,22 @@
+﻿{ 
+    "agenda": "의제", 
+    "exxhibition": "전시홀",
+    "symposium": "심포지엄 홀",
+    "helpdesk": "Helpdesk",
+    "Click here to view": "클릭하여 확인",
+    "lobby": "로비",
+    "day1": "1일차",
+    "day2": "2일차",
+    "mainsession": "본 세션",
+    "breakout1": "소그룹 #1",
+    "breakout2": "소그룹 #2",
+    "treatmenttrouble": "치료 계획 및 문제 해결",
+    "practicemanagement": "진료 관리",
+    "teens": "청소년",
+    "adultaesthetics": "성인/에스테틱",
+    "joinsession":"세션 참가",
+   "Waitingforthe":" 이 곳을",
+    "shanchor":"클릭하여 저희의 ",
+    "exphall":"전시 홀을 둘러보십시오.",
+    "Waiting for the session to start? Click here to explore our exhibition hall!": "Waiting for the session to start? Click here to explore our exhibition hall!"
+}

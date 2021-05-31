@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/font_awesome.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css">
+   
+
+    <style>
+      .playerModal {
+          cursor: pointer;
+      }
+      
+      .compatibility-message {
+          display: none;
+      }
+      
+      @media (orientation: portrait) {
+          html,
+          body {
+              overflow: hidden;
+              background-color: #000;
+              max-width: 100%;
+          }
+          .compatibility-message {
+              display: block;
+              position: fixed;
+              z-index: 999999;
+              width: 100%;
+              height: 100%;
+              background: #13110e;
+              text-align: center;
+          }
+          .compatibility-message img {
+              max-width: 100%;
+          }
+      }
+      /*------------hotsport css-----------------*/
+      
+      .hotspots {
+          width: 22px;
+          height: 22px;
+          background-color: #3AB3EF;
+          border-radius: 50%;
+          position: absolute;
+          animation: wave 1s infinite;
+          cursor: pointer;
+      }
+      
+      a:hover {
+          text-decoration: none;
+      }
+      
+      .experience {
+          right: 41%;
+          bottom: 35%;
+      }
+      
+      .share {
+          left: 40.50%;
+          bottom: 34%;
+      }
+      
+      .hotspots::before {
+          content: attr(text);
+          width: max-content;
+          position: absolute;
+          background-color: #222222dd;
+          color: #fff;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 30px;
+          padding: 8px 20px;
+          font-size: 14px;
+          border-radius: 3px;
+          display: none;
+      }
+      
+      .hotspots::after {
+          content: "";
+          border-color: transparent transparent #222222dd;
+          border-width: 0 8px 6px;
+          border-style: solid;
+          position: absolute;
+          top: 24px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: none;
+      }
+      
+      .hotspots:hover::before,
+      .hotspots:hover::after {
+          display: block;
+      }
+      
+      @media (max-width: 768px) {
+          .hotspots {
+              width: 12px;
+              height: 12px;
+          }
+          .experience {
+              bottom: 36%;
+          }
+          .share {
+              bottom: 36%;
+          }
+      }
+      /*------------hotsport css-----------------*/
+      
+      body {
+          position: fixed;
+          overflow: hidden;
+      }
+      
+      .back {
+          max-width: 40px;
+          top: 14%;
+          left: 5%;
+          position: absolute;
+          cursor: pointer;
+      }
+      
+      @media (max-width:3840px) {
+          .video {
+              position: absolute;
+              left: 28%;
+              top: 42%;
+          }
+          .img {
+              width: 220px;
+              height: 220px;
+          }
+      }
+      
+      @media (max-width:2560px) {
+          .video {
+              position: absolute;
+              left: 28%;
+              top: 42%;
+          }
+          .img {
+              width: 150px;
+              height: 150px;
+          }
+      }
+      
+      @media (max-width:1440px) {
+          .video {
+              position: absolute;
+              left: 28%;
+              top: 41%;
+          }
+          .img {
+              width: 84px;
+              height: 84px;
+          }
+      }
+      
+      @media (max-width:1366px) {
+          .video {
+              position: absolute;
+              left: 27.60%;
+              top: 40.70%;
+          }
+          .img {
+              width: 80px;
+              height: 80px;
+          }
+      }
+      
+      @media (max-width:1024px) {
+          .a.video {
+              position: absolute;
+              left: 27.30%;
+              top: 42%;
+          }
+          .img {
+              width: 70px;
+              height: 70px;
+          }
+      }
+      
+      @media (max-width:992px) {
+          .video {
+              position: absolute;
+              left: 27.60%;
+              top: 39%;
+          }
+          .img {
+              width: 60px;
+              height: 60px;
+          }
+      }
+      
+      @media (max-width:700px) {
+          .video {
+              position: absolute;
+              left: 27.60%;
+              top: 40.30%;
+          }
+          .img {
+              width: 45px;
+              height: 45px;
+          }
+      }
+      
+      @media (max-width:600px) {
+          .video {
+              position: absolute;
+              left: 28%;
+              top: 38.70%;
+          }
+          .img {
+              width: 36px;
+              height: 34px;
+          }
+      }
+      
+      @media (max-width:450px) {
+          .video {
+              position: absolute;
+              left: 28%;
+              top: 38%;
+          }
+          .img {
+              width: 23px;
+              height: 23px;
+          }
+      }
+      
+      @media (max-width:3840px) {
+          body {
+              overflow: hidden;
+          }
+      }
+      
+      @media (max-width:992px) {
+          body {
+              position: relative;
+              overflow: visible;
+          }
+      }
+      
+      .btn:hover {
+          background-color: #00ccff;
+      }
+      /*--------------select_1 check box css------------------------*/
+      
+      input {
+          margin-left: 10px;
+      }
+      
+      .selectBox {
+          position: relative;
+      }
+      
+      .overSelect {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+      }
+      
+      #checkBoxes {
+          display: none;
+          border: 1px #A9A9A9 solid;
+      }
+      
+      #checkBoxes label {
+          display: block;
+      }
+      
+      #checkBoxes label:hover {
+          background-color: #00ccff;
+      }
+      /*-------------select_1 check box css end--------------------------*/
+      /*-------------select_2 check box css--------------------------*/
+      
+      #checkBoxes2 {
+          display: none;
+          border: 1px #A9A9A9 solid;
+      }
+      
+      #checkBoxes2 label {
+          display: block;
+      }
+      
+      #checkBoxes2 label:hover {
+          background-color: #00ccff;
+      }
+      
+      input[type=text] {
+          color: #495057;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid #ced4da;
+          width: 100%;
+          padding: 1%;
+      }
+      /*-------------select_2 check box css end--------------------------*/
+      /*-------------input box css end--------------------------*/
+      
+      .form-group .form-control {
+          text-align: left;
+      }
+      
+      .input {
+          margin-left: 10px;
+      }
+      #myModal3 .modal-dialog{
+          max-width:90%;
+      }
+      .slider{
+          display:none;
+      }
+      /*-------------input box css end--------------------------*/
+  </style>
+   <script src="assets/js/lang.js"></script>
+</head>
+<body  >
+  <!----------------phone orintation-------------------->
+  <div class="compatibility-message" >
+    <img src="https://dpq8mnugsaz6e.cloudfront.net/images/orintation.jpeg" alt="">
+  </div>
+
+  <!----------------phone orintation-------------------->
+  <!------Top navebar------->
+  <%- include('./top_nav'); %>
+
+  <!------Top navebar------->
+
+  <!---------------------landing-page--------------------------------->
+     <section>
+
+      <div class="landing">
+     
+        <img src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/Align Booth_Digital.png" alt="" style="width: 100%; ">
+        <a data-toggle="modal" href="#exampleModalCenter">  
+          <div class="video">
+            <img src="https://dpq8mnugsaz6e.cloudfront.net/images/icons/playbutton.png" id="play" class="img">
+          </div>
+        </a>
+        <a href="/exhibition">  <img class="back" src="https://dpq8mnugsaz6e.cloudfront.net/images/backbtn1.png" alt=""></a>
+       
+        
+       <a data-toggle="modal" href="#modelform"> 
+         <div class="hotspots share" id="share" text="Share"></div> 
+        </a>
+        <a data-toggle="modal" href="#myModal3">
+          <div class="hotspots experience" id="experience" text="Learn More"></div>
+         </a>
+        
+    </div>
+    
+    </section>
+  
+  <!---------------------landing-page end--------------------------------->
+  <!---------------------model_1--------------------------------------------------->
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center d-block">
+                <h3 class="modal-title d-inline-block" id="exampleModalLongTitle" style="color:#00ccff;">Align Digital Experience
+                </h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <iframe id="playerIframe" sandbox="allow-forms allow-scripts allow-same-origin allow-popups" allow="microphone; camera; fullscreen" width="100%" style="height:435px;border:none;"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---------------------model_1_end--------------------------------------------------->
+
+  <!---------------------model_2--------------------------------------------------->
+
+  <div class="modal fade" id="modelform" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content ">
+            <div class="modal-header  text-center d-block">
+                <div class="container" id="message">
+
+                </div>
+                <h3 class="modal-title d-inline-block" id="exampleModalLongTitle" style="color:#00ccff; ">Share & take the offer</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+            </div>
+
+            <div class="modal-body">
+                <p style="margin-left: 10px;">By sharing your thoughts, you will receive a ringlight to enhance your experience 
+                    in using Invisalign Photo Uploader to take high quality photos.
+                </p>
+                <form id="select">
+
+                    <div class="form-group">
+                        <label style="margin-left: 10px;">After visiting the booth today, which digital tools are you interested
+            in trying out?*</label>
+                        <div class="multipleSelection">
+                            <div class="selectBox" onclick="showCheckboxes()">
+                                <select class="form-control" style="margin-left: 8px;">
+                <option>Select options</option>
+              </select>
+                                <div class="overSelect"></div>
+                            </div>
+
+                            <div id="checkBoxes" style="margin-left: 10px;">
+                                <label>
+                <input type="checkbox" id="first" class="answers" 
+                  value="SmileView In-Practice" />
+                SmileView In-Practice
+              </label>
+
+                                <label>
+                <input type="checkbox" id="second" class="answers" 
+                  value="My Invisalign App + Virtual Care" />
+                My Invisalign App + Virtual Care
+              </label>
+                                <label for="third">
+                <input type="checkbox" id="third" class="answers" 
+                  value="Invisalign Photo Uploader" />
+                Invisalign Photo Uploader
+              </label>
+                                <label>
+                <input type="checkbox" id="fourth" class="answers" 
+                  value="ClinCheck Pro 6.0 with 3D Controls" />
+                ClinCheck Pro 6.0 with 3D Controls
+              </label>
+                                <label>
+                <input type="checkbox" id="fifth" class="answers" 
+                  value="ClinCheck In-Face Visualisation Tool" />
+                ClinCheck In-Face Visualisation Tool
+              </label>
+                                <label>
+                <input type="checkbox" id="sixth" class="answers"  value="iTero IOSIM" />
+                iTero IOSIM
+              </label>
+                                <label>
+                <input type="checkbox" id="seventh" class="answers" 
+                  value="iTero Timelapse" />
+                iTero Timelapse
+              </label>
+                                <label>
+                <input type="checkbox" id="eighth" class="answers" 
+                  value="iTero Interproximal Caries Detection" />
+                  iTero Interproximal Caries Detection
+              </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="margin-left: 10px;">Please share with us your reasons for not adopting the digital tools that you 
+                        are interested in.</label>
+                        <div class="multipleSelection">
+                            <div class="selectBox" onclick="showCheckboxes2()">
+                                <select class="form-control" style="margin-left: 8px;">
+                <option>Select options</option>
+              </select>
+                                <div class="overSelect"></div>
+                            </div>
+
+                            <div id="checkBoxes2" style="margin-left: 10px;">
+                                <label>
+                <input type="checkbox" id="one" class="answer" 
+                  value="Need more support from local sales representatives' follow up" />
+                Need more support from local sales representatives' follow up
+              </label>
+
+                                <label>
+                <input type="checkbox" id="two" class="answer" 
+                  value="Need a demo session from local sales representatives" />
+                Need a demo session from local sales representatives
+              </label>
+                                <label for="third">
+                <input type="checkbox" id="three" class="answer" 
+                  value="Need walkthrough guidance in Invisalign Doctor Site (IDS) platform" />
+                Need walkthrough guidance in Invisalign Doctor Site (IDS) platform
+              </label>
+
+              <label for="fourth">
+                <input type="checkbox" id="four" class="answer" 
+                  value="None, I am already using/ready to try out the digital tools in my practice" />
+                None, I am already using/ready to try out the digital tools in my practice
+              </label>
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="form-group">
+                        <label style="margin-left: 10px;" for="exampleInputEmail1">Name*</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" required="required">
+
+                    </div>
+                    <div class="form-group">
+                        <label style="margin-left: 10px;" for="exampleInputEmail1">Invisalign Doctor Site username*</label>
+                        <input type="text" class="form-control" id="exampleInputEmail2" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label style="margin-left: 10px;" for="exampleInputEmail1">Do you want us to send the giveaway to your
+            primary practice address on IDS?*</label>
+                        <div class="form-check" style="margin-left: 10px;">
+                            <input class="form-check-input answer22" type="radio" name="exampleRadios" id="chkYes" onclick="EnableDisableTextBox()" value="Yes" required="required">
+                            <label class="form-check-label" for="exampleRadios1">
+              Yes
+            </label>
+                        </div>
+                        <div class="form-check" style="margin-left: 10px;">
+                            <input class="form-check-input answer22" type="radio" name="exampleRadios" id="chkNo" onclick="EnableDisableTextBox()" value="No" required="required">
+                            <label class="form-check-label" for="exampleRadios2">
+              No
+            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="margin-left: 10px;" for="exampleInputEmail1">If no, please indicate your preferred practice
+            address:</label>
+                        <input type="text" class="form-control" id="txther" disabled="disabled" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check" style="margin-left: 10px;">
+                            <input class="form-check-input" type="checkbox" id="gridCheck" onclick="displayed()" required='required' value="one">
+                            <label class="form-check-label" for="gridCheck">
+              <p style="font-size: 15px;">I hereby acknowledge that I have read and agreed to Align
+                Terms of Use for Align Website, Align Privacy Policy, and Align Policy of the Use of Cookies.</p>
+              <p style="font-size: 15px;">
+                By checking the box, you agree to provide your information to Invisalign Singapore Pte. Ltd., its
+                affiliates (Collectively, “Align”) and the organizer of Align Virtual Symposium [Seventy2 Pte Ltd],
+                who will use it to communicate with you regarding Align Virtual Symposium and to provide other
+                services. By checking this box, you also confirm that you have read, understood, and agreed to
+                Align Terms of Use for the Align Website, Align Privacy Policy, and Align Policy of the Use of
+                Cookies.*</p>
+            </label>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-secondary" id="button">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------model_2_end--------------------------------------------------->
+
+   <!--------------------- Modal_3 ------------------------------------------>
+   <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog modal-lg  modal-dialog-centered modal-dialog-scrollable">
+
+        <!-- Modal content-->
+        <div class="modal-content ">
+            <div class="modal-header text-center d-block">
+                <h2 class="modal-title d-inline-block " style="color:#00ccff;text-transform:capitalize;">Align Digital Experience</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body ">
+                <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner">
+                        <!--------------------------===========slider_======================----------------->
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 style="color: 	#00ccff;">Digital Experience Overview</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img class="d-block w-100 img-fluid" src="http://dwmz5u2i1et7.cloudfront.net/images/digitalbooth/Digital Experience Overview.png">
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+                        <!--------------------------===========slider_1_end======================----------------->
+
+                        <!--------------------------===========slider_2======================----------------->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 style="color: 	#00ccff;">Capture</h4>
+                                        <h5>Drive awareness before the first office visit</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/SmileView - Photo retouch before _ after.jpg">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>SmileView</strong> </h5>
+                                    <p>A non-clinical tool to help engage your
+                    patients/consumers associated with your practice, to create awareness, increase interest and convert more consumers into Invisalign treatment. Allow your patients to visualize themselves with a healthy, beautiful smile
+                                        in 60 seconds.
+                                    </p>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/MyInvisalign Animated.gif">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>My Invisalign App</strong> </h5>
+                                    <p>The My Invisalign App provides an end-to-end digital experience that supports both prospective and current Invisalign patients through the treatment journey. Features like Aligner Tracker and Appointment Calendar
+                                        encourage treatment compliance.<br><br>*My Invisalign App is available in selected countries only.
+                                    </p>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/ALI-240VirtualAppt_Image.jpg">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>Invisalign Virtual Appointment</strong> </h5>
+                                    <p>Conducting the virtual consultation. A video conferencing platform that allows you to schedule and host HIPAA compliant video appointments with your patients and consumers. Easily accessible, convenient and efficient.
+      <!--<p>My Invisalign App is available in selected countries only.</p>-->
+                                    </p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--------------------------===========slider_2_end======================----------------->
+                        <!--------------------------===========slider_3===========================---------------->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 style="color: 	#00ccff;">Scan</h4>
+                                        <h5>Capture patient data and digital imaging</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/IPU.png">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>Invisalign Photo Uploader</strong> </h5>
+                                    <p>Simplify the creation of new Invisalign patient treatment records, capture quality photos, and upload them directly to your Invisalign Doctor Site from a mobile device. The wide-smile photo taken with the app enables
+                                        you to see ClinCheck In-Face Visualization.
+                                    </p>
+                                </div>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/iTero Scanner.jpg">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>iTero Scanner</strong> </h5>
+                                    <p>The iTero Scanner is a multidisciplinary intraoral
+                                        scanner.It can capture the 3D digital impression, intraoral photo and Near-Infrared Imaging (NIRI)* in one scan. The iTero intraoral scan can be used to diagnose,
+                                        communicate and educate your patients interactively as part of your clinical consultation.​
+      <p>*NIRI is only available on iTero Element 5D intraoral scanner.
+                                        iTero Element 5D intraoral scanner is available in selected countries only.”</p>
+                    
+                                    </p>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/NIRI.png">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>Interproximal Caries Detection Aid</strong> </h5>
+                                    <p>Detecting interproximal caries without harmful radiation​. Provides additional capabilities and information to the digital scans to
+                                         diagnose potential caries in order to ensure a healthy treatment and impart hygiene awareness.
+                                    </p>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/IOSIM.png">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>Invisalign Outcome Simulator</strong> </h5>
+                                    <p>Show patients their potential smile with the Invisalign Outcome Simulator.​ Improve patients’ understanding of their condition and proposed ​treatment. Showing patients a visualization of their potential smiles may
+                                        increase case acceptance.​ Invite patients to be the driver of their own treatment and make treatment decisions alongside with you.
+
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--------------------------===========slider_3_end======================----------------->
+                        <!--------------------------===========slider_4==========================----------------->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 style="color: 	#00ccff;">Plan</h3>
+                                    <h5>Enhanced digital treatment planning tools</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/ClinCheck Pro 6 with 3D Controls.jpg">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>ClinCheck Pro with 3D Controls</strong> </h5>
+                                    <p>Elevate your digital treatment planning experience with the latest innovation ClinCheck Pro 6.0​. Review, modify and approve treatment plans using cloud-based software and more precise control brought by ClinCheck
+                                        Pro’s 3D Controls.
+                                    </p>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/In-Face Visualization.png">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>ClinCheck In-Face Visualization Tool</strong> </h5>
+                                    <p>Bring the treatment planning experience to the next level with ClinCheck In-Face Visualization tool​. Allows you to see a 2D 3D integration. Integrates the 3D tooth model into a picture of your patient’s face,
+                                        allowing you to modify a treatment plan with the benefit of facial landmarks​.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--------------------------===========slider_4_end==========================----------------->
+                        <!--------------------------===========slider_5==========================----------------->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 style="color: 	#00ccff;">Treat</h3>
+                                    <h5>Office delivery of customised, digitally designed aligners</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/Invisalign aligner Image.png">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>Invisalign Clear Aligners</strong> </h5>
+                                    <p>Invisalign clear aligners deliver more predictable results with three patented Smart technologies
+                                    </p>
+                                    <ul>
+                                        <li>SmartForce features for better control and predictability</li>
+                                        <li>SmartTrack material provides gentle, more constant forces to improve control of tooth movements
+                                        </li>
+                                        <li>SmartStage technology for optimization of tooth movement progression while minimizing intra-arch and inter-arch interferences</li>
+                                    </ul>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                    </p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!--------------------------===========slider_5_end==========================----------------->
+                        <!--------------------------===========slider_6==========================----------------->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 style="color: 	#00ccff;">Monitor</h3>
+                                    <h5>Follow treatment progress remotely</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/Virtual care_MyInvisalignApp image.png">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>Invisalign Virtual Care Through My Invisalign App</strong>
+                                    </h5>
+
+                                    <p>Connected. Convenient. Confident.​ And always doctor directed. ​ Virtual Care through My Invisalign app allows patients to share photos with you and you can provide feedback after reviewing the photo. It allows you
+                                        to stay virtually connected with your patients and ensures that you stay on track toward your patients' new smiles.
+                                    </p>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/Progress Assessment.jpg">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>Invisalign Progress Assessment</strong> </h5>
+                                    <p>Show patient real-time comparison with Progress Assessment.
+                                    </p>
+                                    <p>Evaluate progress during Invisalign treatment. You will know exactly how the treatment is progressing and can
+                                        accelerate or decelerate aligner wear at any time during treatment. Improve patient compliance.
+                                    </p>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/TimeLapse.png">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>iTero TimeLapse</strong> </h5>
+                                    <p>Utilize iTero's unique TimeLapse to visualize and communicate any changes that happen over time. Observable changes include, not limited to, before-and-after effect of treatments,
+                                        tooth movements, tooth wear, gingival recession, relapse and retention.
+                                    </p>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="d-block w-100 img-fluid" src="https://dpq8mnugsaz6e.cloudfront.net/images/digitalbooth/Vivera_image_whitecase.jpg">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 style="color: 	#00ccff;"> <strong>Vivera Retainers</strong> </h5>
+                                    <p>Keep your patients smiling with Vivera retainer. </p>
+                                    <p>The Vivera retainer is a premium, long term retention solution and is a part of your Align digital workflow.
+                                    </p>
+                                    <p>Vivera retainer work hard for your practice and your patients by retaining the beautiful smiles you create.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--------------------------===========slider_6_end==========================----------------->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="display: inline;">
+                <a href="#carouselExample" class="text-info"  data-slide="prev" id="back_1" style="float:left;"></a>
+                <a href="#carouselExample" class="text-info" data-slide="prev" id="back_2" style="float:left;"></a>
+                <a href="#carouselExample" class="text-info" data-slide="prev" id="back_3" style="float:left;"></a>
+                <a href="#carouselExample" class="text-info" data-slide="prev" id="back_4" style="float:left;"></a>
+                <a href="#carouselExample" class="text-info" data-slide="prev" id="back_5" style="float:left;"></a>
+                <a href="#carouselExample" class="text-info" data-slide="prev" id="back_6" style="float:left;"></a>
+                <a href="#carouselExample" class="text-info ml-auto " data-slide="next" id="next_1" style="float:right;"></a>
+                <a href="#carouselExample" class="text-info ml-auto " data-slide="next" id="next_2" style="float:right;"></a>
+                <a href="#carouselExample" class="text-info ml-auto " data-slide="next" id="next_3" style="float:right;"></a>
+                <a href="#carouselExample" class="text-info ml-auto " data-slide="next" id="next_4" style="float:right;"></a>
+                <a href="#carouselExample" class="text-info ml-auto" data-slide="next" id="next_5" style="float:right;"></a>
+                <a href="#carouselExample" class="text-info ml-auto " data-slide="next" id="next_6" style="float:right;"></a>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!------------------------ Modal_3 end ----------------->
+
+  <!------bottom navebar------->
+  <%- include('./bottom_nav'); %>
+ 
+  <!------bottom navebar------->
+
+
+<!-- jQuery library -->
+<script src="assets/libs/bootstrap/js/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="assets/libs/bootstrap/js/popper.min.js"></script>
+<script src="assets/libs/bootstrap/fonts/font_kit.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#exampleModalCenter").on('show.bs.modal', function() {
+          let url = 'videojs-player.html?url=https://d3n1lc1vveyc7o.cloudfront.net/aligntest/videos/exhibition/digital/digital/digital_experience_FINAL.m3u8&type=application/x-mpegURL&poster=';
+          $('#playerIframe').attr('src', url);
+      });
+
+      $("#exampleModalCenter").on('hide.bs.modal', function() {
+          $('#playerIframe').attr('src', '');
+      });
+  });
+</script>
+
+<script>
+        var show = true;
+  
+        function showCheckboxes() {
+            var checkboxes = 
+                document.getElementById("checkBoxes");
+  
+            if (show) {
+                checkboxes.style.display = "block";
+                show = false;
+            } else {
+                checkboxes.style.display = "none";
+                show = true;
+            }
+        }
+    </script>
+    <script>
+      var show = true;
+
+      function showCheckboxes2() {
+          var checkboxes = 
+              document.getElementById("checkBoxes2");
+
+          if (show) {
+              checkboxes.style.display = "block";
+              show = false;
+          } else {
+              checkboxes.style.display = "none";
+              show = true;
+          }
+      }
+  </script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+  $(document).ready(function() {
+      $('#back_1').html('<i class="fas fa-arrow-alt-circle-left" style="font-size:16px"></i> Back');
+      $('#next_1').html('Step 1: Capture <i class="fas fa-arrow-alt-circle-right" style="font-size:16px"></i>');
+      $(document).click(function() {
+          $("#back_1").prop('disabled', true);
+      });
+     
+      $("#back_2").click(function() {
+          $('#back_1').html('<i class="fas fa-arrow-alt-circle-left" style="font-size:16px"></i> Back');
+          $('#next_1').html('Step 1: Capture <i class="fas fa-arrow-alt-circle-right" style="font-size:16px"></i>');
+          $('#back_1').show();
+          $('#back_2').hide();
+          $('#back_3').hide();
+          $('#back_4').hide();
+          $('#back_5').hide();
+          $('#back_6').hide();
+
+          $('#next_1').show();
+          $('#next_2').hide();
+          $('#next_3').hide();
+          $('#next_4').hide();
+          $('#next_5').hide();
+      });
+      $("#back_3").click(function() {
+          
+          $('#back_2').html('<i class="fas fa-arrow-alt-circle-left" style="font-size:16px"></i> Back to Overview');
+          $('#next_2').html('Step 2: Scan <i class="fas fa-arrow-alt-circle-right" style="font-size:16px"></i>');
+
+          $('#back_1').hide();
+          $('#back_2').show();
+          $('#back_3').hide();
+          $('#back_4').hide();
+          $('#back_5').hide();
+          $('#back_6').hide();
+
+          $('#next_1').hide();
+          $('#next_2').show();
+          $('#next_3').hide();
+          $('#next_4').hide();
+          $('#next_5').hide();
+      });
+      $("#back_4").click(function() {
+          $('#back_3').html('<i class="fas fa-arrow-alt-circle-left" style="font-size:16px"></i> Back to Capture');
+          $('#next_3').html('Step 3: Plan <i class="fas fa-arrow-alt-circle-right" style="font-size:16px"></i>');
+
+          $('#back_1').hide();
+          $('#back_2').hide();
+          $('#back_3').show();
+          $('#back_4').hide();
+          $('#back_5').hide();
+          $('#back_6').hide();
+
+          $('#next_1').hide();
+          $('#next_2').hide();
+          $('#next_3').show();
+          $('#next_4').hide();
+          $('#next_5').hide();
+      });
+      $("#back_5").click(function() {
+          $('#back_4').html('<i class="fas fa-arrow-alt-circle-left" style="font-size:16px"></i> Back to Scan');
+          $('#next_4').html('Step 4: Treat <i class="fas fa-arrow-alt-circle-right" style="font-size:16px"></i>');
+
+          $('#back_1').hide();
+          $('#back_2').hide();
+          $('#back_3').hide();
+          $('#back_4').show();
+          $('#back_5').hide();
+          $('#back_6').hide();
+
+          $('#next_1').hide();
+          $('#next_2').hide();
+          $('#next_3').hide();
+          $('#next_4').show();
+          $('#next_5').hide();
+      });
+      $("#back_6").click(function() {
+          $('#back_5').html('<i class="fas fa-arrow-alt-circle-left" style="font-size:16px"></i> Back to Plan');
+          $('#next_5').html('Step 5: Monitor <i class="fas fa-arrow-alt-circle-right" style="font-size:16px"></i>');
+          
+          $('#back_1').hide();
+          $('#back_2').hide();
+          $('#back_3').hide();
+          $('#back_4').hide();
+          $('#back_5').show();
+          $('#back_6').hide();
+
+          $('#next_1').hide();
+          $('#next_2').hide();
+          $('#next_3').hide();
+          $('#next_4').hide();
+          $('#next_5').show();
+      });
+      $("#next_1").click(function() {
+          $('#back_1').hide();
+          $('#back_2').show();
+          $('#back_3').hide();
+          $('#back_4').hide();
+          $('#back_5').hide();
+          $('#back_6').hide();
+
+          $('#next_1').hide();
+          $('#next_2').show();
+          $('#next_3').hide();
+          $('#next_4').hide();
+          $('#next_5').hide();
+
+          $('#back_2').html('<i class="fas fa-arrow-alt-circle-left" style="font-size:16px"></i> Back to Overview');
+          $('#next_2').html('Step 2: Scan <i class="fas fa-arrow-alt-circle-right" style="font-size:16px"></i>');
+      });
+      $("#next_2").click(function() {
+          $('#back_3').html('<i class="fas fa-arrow-alt-circle-left" style="font-size:16px"></i> Back to Capture');
+          $('#next_3').html('Step 3: Plan <i class="fas fa-arrow-alt-circle-right" style="font-size:16px"></i>');
+
+          $('#back_1').hide();
+          $('#back_2').hide();
+          $('#back_3').show();
+          $('#back_4').hide();
+          $('#back_5').hide();
+          $('#back_6').hide();
+
+          $('#next_1').hide();
+          $('#next_2').hide();
+          $('#next_3').show();
+          $('#next_4').hide();
+          $('#next_5').hide();
+      });
+      $("#next_3").click(function() {
+          $('#back_4').html('<i class="fas fa-arrow-alt-circle-left" style="font-size:16px"></i> Back to Scan');
+          $('#next_4').html('Step 4: Treat <i class="fas fa-arrow-alt-circle-right" style="font-size:16px"></i>');
+          
+          $('#back_1').hide();
+          $('#back_2').hide();
+          $('#back_3').hide();
+          $('#back_4').show();
+          $('#back_5').hide();
+          $('#back_6').hide();
+
+          $('#next_1').hide();
+          $('#next_2').hide();
+          $('#next_3').hide();
+          $('#next_4').show();
+          $('#next_5').hide();
+      });
+      $("#next_4").click(function() {
+          $('#back_5').html('<i class="fas fa-arrow-alt-circle-left" style="font-size:16px"></i> Back to Plan');
+          $('#next_5').html('Step 5: Monitor <i class="fas fa-arrow-alt-circle-right" style="font-size:16px"></i>');
+          
+          $('#back_1').hide();
+          $('#back_2').hide();
+          $('#back_3').hide();
+          $('#back_4').hide();
+          $('#back_5').show();
+          $('#back_6').hide();
+
+          $('#next_1').hide();
+          $('#next_2').hide();
+          $('#next_3').hide();
+          $('#next_4').hide();
+          $('#next_5').show();
+      });
+      $("#next_5").click(function() {
+          $('#back_6').html('<i class="fas fa-arrow-alt-circle-left" style="font-size:16px"></i> Back to Treat');
+          
+          $('#back_1').hide();
+          $('#back_2').hide();
+          $('#back_3').hide();
+          $('#back_4').hide();
+          $('#back_5').hide();
+          $('#back_6').show();
+
+          $('#next_1').hide();
+          $('#next_2').hide();
+          $('#next_3').hide();
+          $('#next_4').hide();
+          $('#next_5').hide();
+      });
+  });
+</script>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var txther
+        var name, email, answers, answer, value, value1, answers1, answer1, answers2, address, answer2, grid
+        var values = []
+        var values1 = []
+        var values2
+
+        function displayed() {
+            grid = document.getElementById("gridCheck").value
+        }
+
+        $(".answer").click(function(){
+        values1=[]
+        $(".answer").each(function(){
+        if($(this).is(":checked"))
+            values1.push($(this).val());
+         })
+        })
+
+        $(".answers").click(function(){
+        values=[]
+        $(".answers").each(function(){
+        if($(this).is(":checked"))
+            values.push($(this).val());
+         })
+        })
+
+        function EnableDisableTextBox() {
+            var chkYes = document.getElementById("chkNo");
+            txther = document.getElementById("txther");
+            txther.disabled = chkYes.checked ? false : true;
+            if (!txther.disabled) {
+                txther.focus();
+            }
+        }
+    
+    var firebaseConfig = {
+    apiKey: "AIzaSyCQHH7s1h2NHWAUd2L9EeNk7YRRGLgfd5U",
+    authDomain: "user-analytics-7f2fb.firebaseapp.com",
+    databaseURL: "https://user-analytics-7f2fb-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "user-analytics-7f2fb",
+    storageBucket: "user-analytics-7f2fb.appspot.com",
+    messagingSenderId: "264365350373",
+    appId: "1:264365350373:web:50df388263edd3284fe30c",
+    measurementId: "G-HTWLVHG2TT"
+  };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  
+  
+    firebase.database().ref().on('value',snap=>{
+      //   do nothing
+    })
+
+
+var subscriberId = localStorage.getItem('subscriberId')
+  var firstName = localStorage.getItem('firstName')
+  var lastName = localStorage.getItem('lastName')
+    var name = firstName + "_" + lastName + "_" + subscriberId
+
+  
+    async function ready() {
+               // name = document.getElementById("exampleInputEmail1").value
+                email = document.getElementById("exampleInputEmail2").value
+                address = document.getElementById("txther").value
+                if (name == "") {
+                    document.getElementById("message").innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> You have to fill name </strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>`
+                }
+
+                if (grid != "one") {
+                    document.getElementById("message").innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> You have to click the checkbox </strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>`
+                }
+
+                if (email == "") {
+                    document.getElementById("message").innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> You have to fill Invisalign Doctor Site Username </strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>`
+                }
+
+                if (!txther.disabled && address == "") {
+                    document.getElementById("message").innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> Please Indicate Your Preferred Practice Address </strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>`
+                }
+
+               if (values == "") {
+                    document.getElementById("message").innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> Please select one or more options </strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>`
+                }
+
+                if (values1 == "") {
+                    document.getElementById("message").innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> Please select one or more options </strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>`
+                }
+
+
+
+
+
+                answers2 = document.querySelectorAll(".answer22")
+
+
+                answers2.forEach((currentElement) => {
+                    if (currentElement.checked) {
+                        answer2 = currentElement.id,
+                            values2 = document.getElementById(answer2).value
+                    }
+                })
+            }
+
+            document.getElementById("button").onclick = function() {
+                ready();
+
+                if (!txther.disabled && address !="" && values !="" && values1 !="" && name != "" && email != "" && txther != "" && grid == "one") {
+                    firebase.database().ref("DigitalBoothForm/" + name).set({
+                        "After visiting the booth today, which digital tools are you interested in trying out?": values,
+                        "What are the reasons you are not using the digital tools that you are interested now?": values1,
+                        "Do you want us to send the giveaway to your primary address?": values2,
+                        Name: name,
+                        "If no, please indicate your preferred practice address": address,
+                        "Invisalign Doctor Site username": email
+                    });
+
+                    document.getElementById("message").innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> Your response has been recorded</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>`
+document.getElementById("select").reset()
+
+                }
+                if (txther.disabled && values != "" && values1 != "" && name != "" && email != "" && grid == "one") {
+                    firebase.database().ref("DigitalBoothForm/" + name).set({
+                        "After visiting the booth today, which digital tools are you interested in trying out?": values,
+                        "What are the reasons you are not using the digital tools that you are interested now?": values1,
+                        "Do you want us to send the giveaway to your primary address?": values2,
+                        Name: name,
+                        "Invisalign Doctor Site username": email
+                    });
+                    document.getElementById("message").innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> Your response has been recorded</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>`
+document.getElementById("select").reset()
+
+                }
+            }
+  
+var subscriberId = localStorage.getItem('subscriberId')
+  var firstName = localStorage.getItem('firstName')
+  var lastName = localStorage.getItem('lastName')
+    var uniqueName = firstName + "_" + lastName + "_" + subscriberId
+  var dt = new Date();
+  var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+  var today = dt.getDate() + "-" + dt.getMonth() + "-" + dt.getFullYear()
+  firebase.database().ref(`${uniqueName}/${today}/Exhibition-Hall/digital-booth/time`).push(time)
+  $('#share').click(function () {
+    var dt = new Date();
+    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    firebase.database().ref(`${uniqueName}/${today}/Exhibition-Hall/digital-booth/share`).push(time)
+  })
+  
+  $('#experience').click(function () {
+    var dt = new Date();
+    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    firebase.database().ref(`${uniqueName}/${today}/Exhibition-Hall/digital-booth/Learn More`).push(time)
+  })
+  
+  $('#play').click(function () {
+    var dt = new Date();
+    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    firebase.database().ref(`${uniqueName}/${today}/Exhibition-Hall/digital-booth/Align digital experience video`).push(time)
+  })
+  
+  </script>
+</body>
+</html>

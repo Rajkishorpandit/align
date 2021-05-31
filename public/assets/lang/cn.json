@@ -1,0 +1,22 @@
+﻿{ 
+    "agenda": "日程", 
+    "exxhibition": "展览馆",
+    "symposium": "高峰论坛厅",
+    "helpdesk": "服务台",
+    "clickheretoview": "单击此处浏览",
+    "lobby": "活动大厅",
+    "day1": "第一天",
+    "day2": "第二天",
+    "mainsession": "主会议",
+    "breakout1": "分组会议＃1",
+    "breakout2": "分组会议＃2",
+    "treatmenttrouble": "治疗计划和问题解答",
+    "practicemanagement": "诊所管理",
+    "teens": "青少年",
+    "adultaesthetics": "成人/美学",
+    "joinsession":"参加会议",
+"Waitingforthe":"点击",
+    "shanchor":"此处",
+    "exphall":"探索我们的展厅！",
+    "Waiting for the session to start? Click here to explore our exhibition hall!": "Waiting for the session to start? Click here to explore our exhibition hall!"
+}

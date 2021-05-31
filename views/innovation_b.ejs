@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation</title>
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/font_awesome.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css">
+
+  
+    <script src="assets/js/lang.js"></script>
+
+    <style>
+      .compatibility-message {
+          display: none;
+      }
+      
+      @media (orientation: portrait) {
+          html,
+          body {
+              overflow: hidden;
+              background-color: #000;
+              max-width: 100%;
+          }
+          .compatibility-message {
+              display: block;
+              position: fixed;
+              z-index: 999999;
+              width: 100%;
+              height: 100%;
+              background: #13110e;
+              text-align: center;
+          }
+          .compatibility-message img {
+              max-width: 100%;
+          }
+      }
+      /*------------hotsport css-----------------*/
+      
+      .hotspots {
+          width: 25px;
+          height: 25px;
+          background-color: #3AB3EF;
+          border-radius: 50%;
+          position: absolute;
+          animation: wave 1s infinite;
+          cursor: pointer;
+      }
+      
+      .invisaligng8 {
+          right: 46.30%;
+          top: 46%;
+      }
+      
+      .teensolution {
+          right: 25.50%;
+          bottom: 34%;
+      }
+      
+      .hotspots::before {
+          content: attr(text);
+          width: max-content;
+          position: absolute;
+          background-color: #222222dd;
+          color: #fff;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 30px;
+          padding: 8px 20px;
+          font-size: 14px;
+          border-radius: 3px;
+          display: none;
+      }
+      
+      .hotspots::after {
+          content: "";
+          border-color: transparent transparent #222222dd;
+          border-width: 0 8px 6px;
+          border-style: solid;
+          position: absolute;
+          top: 24px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: none;
+      }
+      
+      .hotspots:hover::before,
+      .hotspots:hover::after {
+          display: block;
+      }
+      
+      @media (max-width: 768px) {
+          .hotspots {
+              width: 12px;
+              height: 12px;
+          }
+          .teensolution {
+              bottom: 36%;
+          }
+      }
+      /*------------hotsport css-----------------*/
+      
+      body {
+          position: fixed;
+      }
+      
+      @media (max-width:3840px) {
+          body {
+              overflow: hidden;
+          }
+      }
+      
+      @media (max-width:992px) {
+          body {
+              position: relative;
+              overflow: visible;
+          }
+      }
+      
+      .back {
+          max-width: 40px;
+          top: 10%;
+          left: 4%;
+          position: absolute;
+          cursor: pointer;
+      }
+      
+      @media (max-width:3840px) {
+          .video {
+              position: absolute;
+              left: 27%;
+              top: 49%;
+          }
+          .img {
+              width: 220px;
+              height: 220px;
+          }
+      }
+      
+      @media (max-width:2560px) {
+          .video1 {
+              position: absolute;
+              left: 27%;
+              top: 49%;
+          }
+          .img {
+              width: 140px;
+              height: 140px;
+          }
+      }
+      
+      @media (max-width:1440px) {
+          .video1 {
+              position: absolute;
+              left: 27%;
+              top: 49%;
+          }
+          .img {
+              width: 70px;
+              height: 70px;
+          }
+      }
+      
+      @media (max-width:1366px) {
+          .video1 {
+              position: absolute;
+              left: 27.50%;
+              top: 49%;
+          }
+          .img {
+              width: 60px;
+              height: 60px;
+          }
+      }
+      
+      @media (max-width:1024px) {
+          .video1 {
+              position: absolute;
+              left: 27.30%;
+              top: 48%;
+          }
+          .img {
+              width: 50px;
+              height: 50px;
+          }
+      }
+      
+      @media (max-width:992px) {
+          .video1 {
+              position: absolute;
+              left: 27.40%;
+              top: 49%;
+          }
+          .img {
+              width: 40px;
+              height: 40px;
+          }
+      }
+      
+      @media (max-width:700px) {
+          .video1 {
+              position: absolute;
+              left: 27%;
+              top: 46%;
+          }
+          .img {
+              width: 40px;
+              height: 40px;
+          }
+      }
+      
+      @media (max-width:600px) {
+          .video1 {
+              position: absolute;
+              left: 27%;
+              top: 46%;
+          }
+          .img {
+              width: 30px;
+              height: 30px;
+          }
+      }
+      
+      @media (max-width:450px) {
+          .video1 {
+              position: absolute;
+              left: 27%;
+              top: 44%;
+          }
+          .img {
+              width: 20px;
+              height: 20px;
+          }
+          .invisaligng8 {
+              top: 44%;
+          }
+      }
+      
+      .btn:hover {
+          background-color: #00ccff;
+      }
+  </style>
+  
+</head>
+<body  >
+  <!----------------phone orintation-------------------->
+  <div class="compatibility-message" >
+    <img src="http://dpq8mnugsaz6e.cloudfront.net/images/orintation.jpeg" alt="">
+  </div>
+
+  <!----------------phone orintation-------------------->
+  <!------Top navebar------->
+  <%- include('./top_nav'); %>
+
+  <!------Top navebar------->
+
+  <!---------------------landing-page--------------------------------->
+     <section>
+
+      <div class="landing">
+       
+        <img src="http://dpq8mnugsaz6e.cloudfront.net/images/innovationbooth/innovationbooth.png" alt="" style="width: 100%; ">
+        <a data-toggle="modal" href="#Modal_3">  
+          <div class="video1">
+            <img src="http://dpq8mnugsaz6e.cloudfront.net/images/icons/playbutton.png" id="video1" class="img">
+          </div>
+        </a>
+        <a href="/exhibition">  <img class="back" src="http://dpq8mnugsaz6e.cloudfront.net/images/backbtn1.png" alt=""></a>
+        <a data-toggle="modal" href="#myModal_1">
+          <div class="hotspots invisaligng8" id="invisaligng8" text="Invisalign G8"></div>
+         </a>
+        <a data-toggle="modal" href="#myModal2">
+          <div class="hotspots teensolution" id="teensolution" text="Teen Solution"></div> 
+        </a>
+       
+    </div>
+    </section>
+  
+
+
+  <!---------------------landing-page end--------------------------------->
+
+  <!---------------------- Modal_1 ----------------------------------------->
+  <div class="modal fade" id="myModal_1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header text-center d-block">
+                <h3 class="modal-title d-inline-block" style="color:#00ccff;margin-left: 20px;text-transform:capitalize;">Invisalign G8 for improved predictability</h3>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <p>Invisalign G8 with SmartForce Aligner Activation to further improve predictability, so that you can be even more confident of delivering great clinical outcomes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="d-block w-100 img-fluid" src="http://dpq8mnugsaz6e.cloudfront.net/images/innovationbooth/SmartForce Aligner Activation.jpg">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="color: 	#00ccff;"> <strong>SmartForce Aligner Activation</strong> </h5>
+                        <p>SmartForce Aligner Activation ensures areas on the aligner surfaces are contoured to apply forces to the tooth in the proper direction. Throughout every stage of treatment, the location, direction, and intensity of the force
+                            work in harmony to create the optimal force system unique to your patient
+                        </p>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="d-block w-100 img-fluid" src="http://dpq8mnugsaz6e.cloudfront.net/images/innovationbooth/Deep bite.png">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="color: 	#00ccff;"> <strong>Deep Bite Correction</strong> </h5>
+                        <p>
+                            <ul>
+                                <li>Improves clinical predictability of incisor intrusion in deep bite cases by up to 2x<sup>1</sup> </li>
+                                <li>Intrusion force levels are optimized for each tooth </li>
+                                <li>Precision bite ramps are clinically proven to improve lower incisor intrusion by up to 30%<sup>2</sup></li>
+                            </ul>
+                        </p>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="d-block w-100 img-fluid" src="http://dpq8mnugsaz6e.cloudfront.net/images/innovationbooth/Posterior arch expansion in crowding and crossbite cases.png">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="color: 	#00ccff;"> <strong >Posterior Arch Expansion In Crowding And Crossbite Cases</strong> </h5>
+                        <p>
+                            <ul>
+                                <li>Automatically programmed to apply and distribute the required force to each posterior tooth<sup>*</sup> </li>
+                                <li>Designed to minimize unwanted molar tipping by automatically applying buccal root torque to the premolars and first molars<sup>**</sup></li>
+
+                            </ul>
+                        </p>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="d-block w-100 img-fluid" src="http://dpq8mnugsaz6e.cloudfront.net/images/innovationbooth/Reduction in the likelihood of posterior open bite.jpg">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="color: 	#00ccff;"> <strong >Reduction In The Likelihood Of Posterior Open Bite</strong> </h5>
+                        <p>
+                            <ul>
+                                <li>Improves predictability of anterior intrusion and reduces premature anterior contacts</li>
+                                <li>Controls unwanted buccal crown torque/tip during expansion</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 style="color: 	#00ccff;">(Reference/disclaimer)</h6>
+                        <p>
+                            <ol>
+                                <li> Based on analysis of 190,040 primary treatments requiring incisor intrusion. Analysis shows that cases with sufficient activation increased clinical predictability of incisor intrusion by up to 2X compared to cases
+                                    with lower level of activation. Data on file at Align Technology, as of July 25, 2019.</li>
+                                <li> Up to 30% is based on comparison of the lower incisor intrusion achieved in Invisalign G5 cases with bite ramps and without bite ramps. Data on file at Align Technology, as of November 15, 2019.</li><br>
+                                <sup>*</sup>Not applicable for Invisalign Go <br>
+                                <sup>**</sup>Applicable to Invisalign Go for premolars and Invisalign Go Plus for premolars and first molars
+                                </0l>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary " style="" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!------------------------ Modal_1 end ----------------------------------------->
+
+   <!---------------------- Modal_2 ----------------------------------------->
+   <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header text-center d-block">
+                <h3 class="modal-title d-inline-block" style="color: 	#00ccff;text-transform: capitalize;">Invisalign Treatment for Teens</h3>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <p>95% of experienced Invisalign orthodontists agree that Invisalign clear aligner treatment is the future of teen orthodontics.<sup>1</sup></p>
+                        <p>One reason why doctors prefer Invisalign treatment for their growing patient is that it offers a range of options to customize treatment, including Invisalign treatment with mandibular advancement and Invisalign First.
+                        </p>
+                        <iframe id="playerIframe4" sandbox="allow-forms allow-scripts allow-same-origin allow-popups" allow="microphone; camera; fullscreen" width="100%" style="height:435px;border:none;"></iframe>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 style="color: 	#00ccff;">Invisalign Treatment with Mandibular Advancement</h4>
+                        <p>Invisalign treatment with mandibular advancement is a single appliance solution available with Invisalign Teen for Class II correction in growing patients with retrognathic mandibles.</p>
+                        <p>
+                            <ul>
+                                <li>Save the cost and time of fitting and repairs with a simple, single-appliance solution</li>
+                                <li>Simplify compliance with minimal use of elastics</li>
+                                <li>Treat patients efficiently with simultaneous Class II correction and alignment</li>
+                                <li>Increase patient comfort during treatment with a minimal interarch opening and customized advancement increments</li>
+                            </ul>
+                        </p>
+                        <img class=" w-100 img-fluid" src="http://dpq8mnugsaz6e.cloudfront.net/images/innovationbooth/MA.jpg">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 style="color: 	#00ccff;">Invisalign First</h4>
+                        <p>Invisalign First clear aligners offer innovations to address your younger patients’ unique orthodontic needs* with a treatment that’s made to grow with them.</p>
+                        <p>Invisalign First treatment provides a more precise and comfortable<sup>2</sup> process, resulting in a happier experience all around.</p>
+                        <p>
+                            <ul>
+                                <li>Treatment for a broad range of malocclusions</li>
+                                <li>Designed for predictable dental arch expansion</li>
+                                <li>New and improved staging patterns with molars move first that is unique to Invisalign First or simultaneous staging.</li>
+                                <li>Short clinical crown support with new optimized retention attachments</li>
+                                <li>Improved and expanded eruption compensation features</li>
+                            </ul>
+                        </p>
+                        <img class=" w-100 img-fluid" src="http://dpq8mnugsaz6e.cloudfront.net/images/innovationbooth/Invisalign First.jpg">
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 style="color: 	#00ccff;">(Reference/disclaimer)</h6>
+                        <p>
+                            <ol>
+                                <li> Data from a survey of 78 orthodontists (from NA, EMEA, APAC) experienced in treating teenagers (minimum of 40 cases, prior 8 months) with Invisalign clear aligners, regarding teenagers with permanent dentition; doctors
+                                    were paid an honorarium for their time.</li>
+                                <li> Compared to aligners made of off-the-shelf, single-layer 0.030-inch material. Data on file at Align Technology.</li><br>
+                                <sup>*</sup> The use of Invisalign First requires that patients have erupted permanent first molars and at least 2 incisors that are at least 2/3 erupted, and at least 2 primary or unerupted permanent teeth (3 or 4
+                                or 5) per quadrant in at least 3 quadrants<br>
+
+                                </li>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!------------------------ Modal_2 end ----------------------------------------->
+ <!---------------------model_3--------------------------------------------------->
+
+ <div class="modal fade" id="Modal_3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <div class="modal-header text-center d-block">
+              <h3 class="modal-title d-inline-block" id="exampleModalLongTitle" style="color:#00ccff;">Dr Sandra Tai’s G8 Experience</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-md-12">
+                  
+                      <iframe id="playerIframe3" sandbox="allow-forms allow-scripts allow-same-origin allow-popups" allow="microphone; camera; fullscreen" width="100%" style="height:435px;border:none;"></iframe>
+                    
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+          </div>
+      </div>
+  </div>
+</div>
+<!---------------------model_3_end--------------------------------------------------->
+   
+  <!------bottom navebar------->
+  <%- include('./bottom_nav'); %>
+ 
+  <!------bottom navebar------->
+
+
+  <!-- jQuery library -->
+  <script src="assets/libs/bootstrap/js/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="assets/libs/bootstrap/js/popper.min.js"></script>
+  <script src="assets/libs/bootstrap/fonts/font_kit.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+     <!------ video stop------->
+ 
+     <script type="text/javascript">
+       $(document).ready(function() {
+           $("#Modal_3").on('show.bs.modal', function() {
+               let url = 'videojs-player.html?url=https://d3n1lc1vveyc7o.cloudfront.net/aligntest/videos/exhibition/innovation/sandra_tai1/Dr_Tai_APAC.m3u8&type=application/x-mpegURL&poster=';
+               $('#playerIframe3').attr('src', url);
+           });
+  
+           $("#Modal_3").on('hide.bs.modal', function() {
+               $('#playerIframe3').attr('src', '');
+           });
+       });
+   </script>
+    <script type="text/javascript">
+     $(document).ready(function() {
+         $("#myModal2").on('show.bs.modal', function() {
+             let url = 'videojs-player.html?url=https://d3n1lc1vveyc7o.cloudfront.net/aligntest/videos/exhibition/innovation/teen_solution/Teens_First.m3u8&type=application/x-mpegURL&poster=';
+             $('#playerIframe4').attr('src', url);
+         });
+ 
+         $("#myModal2").on('hide.bs.modal', function() {
+             $('#playerIframe4').attr('src', '');
+         });
+     });
+ </script>
+     <!------ video stop------->
+ 
+   
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+ <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+
+ <script>
+     // Your web app's Firebase configuration
+     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+     var firebaseConfig = {
+ apiKey: "AIzaSyCQHH7s1h2NHWAUd2L9EeNk7YRRGLgfd5U",
+ authDomain: "user-analytics-7f2fb.firebaseapp.com",
+ databaseURL: "https://user-analytics-7f2fb-default-rtdb.asia-southeast1.firebasedatabase.app",
+ projectId: "user-analytics-7f2fb",
+ storageBucket: "user-analytics-7f2fb.appspot.com",
+ messagingSenderId: "264365350373",
+ appId: "1:264365350373:web:50df388263edd3284fe30c",
+ measurementId: "G-HTWLVHG2TT"
+};
+     // Initialize Firebase
+     firebase.initializeApp(firebaseConfig);
+     firebase.analytics();
+
+
+     firebase.database().ref().on('value', snap => {
+         //   do nothing
+     })
+
+
+
+     var subscriberId = localStorage.getItem('subscriberId')
+     var firstName = localStorage.getItem('firstName')
+     var lastName = localStorage.getItem('lastName')
+     var uniqueName = firstName + "_" + lastName + "_" + subscriberId
+     var dt = new Date();
+     var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+     var today = dt.getDate() + "-" + dt.getMonth() + "-" + dt.getFullYear()
+     firebase.database().ref(`${uniqueName}/${today}/Exhibition-Hall/innovation-booth/time`).push(time)
+
+     $('#video1').click(function() {
+         var dt = new Date();
+         var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+         firebase.database().ref(`${uniqueName}/${today}/Exhibition-Hall/innovation-booth/Dr Sandra Tai’s G8 Experience`).push(time)
+     })
+
+     $('#invisaligng8').click(function() {
+         var dt = new Date();
+         var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+         firebase.database().ref(`${uniqueName}/${today}/Exhibition-Hall/innovation-booth/Invisalign G8`).push(time)
+     })
+
+     $('#teensolution').click(function() {
+         var dt = new Date();
+         var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+         firebase.database().ref(`${uniqueName}/${today}/Exhibition-Hall/innovation-booth/Teen Solutions`).push(time)
+     })
+ </script>
+</body>
+</html>

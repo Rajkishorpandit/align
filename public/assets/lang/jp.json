@@ -1,0 +1,22 @@
+﻿{ 
+    "agenda": "アジェンダ", 
+    "exxhibition": "エキジビジョンホール",
+    "symposium": "シンポジウムホール",
+    "helpdesk": "ヘルプデスク",
+    "Click here to view": "クリックして確認",
+    "lobby": "ロビー",
+    "day1": "1日目",
+    "day2": "2日目",
+    "mainsession": "メインセッション",
+    "breakout1": "ブレイクアウト1",
+    "breakout2": "ブレイクアウト2",
+    "treatmenttrouble": "治療計画とトラブルシューティング",
+    "practicemanagement": "診療活動管理",
+    "teens": "ティーン",
+    "adultaesthetics": "大人／審美",
+    "joinsession":"セッションに参加",
+   "Waitingforthe":"待ち時間に",
+    "shanchor":"クリックしてエキジビジョンホール",
+    "exphall":"を探検しましょう！",
+    "Waiting for the session to start? Click here to explore our exhibition hall!": "セッションのスタートをお待ちですか？待ち時間にクリックしてエキジビジョンホールを探検しましょう！"
+}

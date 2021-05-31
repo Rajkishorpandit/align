@@ -1,0 +1,35 @@
+
+
+
+<!-------------------------------top nav--------------------------------->
+<nav class="navbar  fixed-top navbar-light bg-dark justify-content-between" style="opacity: 0.7;">
+  <a class="navbar-brand d-none d-sm-block d-flex flex-grow-1" href="/lobby">
+    <img class="img-responsive" src="https://dpq8mnugsaz6e.cloudfront.net/images/logo.png" style="max-width: 240px;">
+</a>
+  <div class="dropdown " >
+    <h6  class="dropdown-toggle" data-toggle="dropdown" style="color:antiquewhite; margin-right: 30px;"><%= username %> </h6>
+    <div class="dropdown-menu dropdown-menu-right">
+    
+       <div class="text-center">
+        <a href="/logOut"> <h6 style="color:#00ace6;  padding: 1px; text-align: center;">Sign Out</h6></a>
+       </div>
+     
+    </div>
+</div>
+<div class="dropdown ">
+  <h6 class="dropdown-toggle selectedLanguage" data-toggle="dropdown" style="color:antiquewhite; margin-right: 30px;">
+      English
+  </h6>
+  <div class="dropdown-menu dropdown-menu-right">
+
+      <div class="d-flex align-items-center flex-column">
+          <a class="text-dark" href="#" onclick="setLanguage('en')">English</a>
+          <a class="text-dark" href="#" onclick="setLanguage('cn')">Chinese</a>
+          <a class="text-dark" href="#" onclick="setLanguage('jp')">Japanese</a>
+          <a class="text-dark" href="#" onclick="setLanguage('kr')">Korean</a>
+          <a class="text-dark" href="#" onclick="setLanguage('vn')">Vietnamese</a>
+      </div>
+  </div>
+</div>
+</nav>
+<!-------------------------------top nav end--------------------------------->
